@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'
 // 这里添加下面两行代码。
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven' //this way we can find the android-maven in jcenter
+group='com.github.htjyandroid'
 
-apply from: rootProject.file('publish-mavencentral.gradle')
 
 android {
     compileSdkVersion  rootProject.ext.android["compileSdkVersion"]
@@ -42,11 +40,6 @@ android {
     }
 }
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-}
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     annotationProcessor rootProject.ext.dependencies["glide-annotationProcessor"]
@@ -129,7 +122,6 @@ dependencies {
     api rootProject.ext.dependencies["baseUtils"]
 }
 
-retrolambda { jvmArgs '-noverify' }
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
