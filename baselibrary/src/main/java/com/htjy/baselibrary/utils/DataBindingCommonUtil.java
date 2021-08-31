@@ -35,6 +35,9 @@ import java.text.DateFormat;
  */
 public class DataBindingCommonUtil {
 
+    /**
+     * view选中
+     */
     @BindingAdapter(value = {"android:htjy_selected"}, requireAll = false)
     public static void setSelected(View view, boolean selected) {
         view.setSelected(selected);
