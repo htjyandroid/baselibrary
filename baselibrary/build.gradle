@@ -87,8 +87,8 @@ dependencies {
     //multidexmultidex
     api rootProject.ext.dependencies['multidex']
 
-    //通用控件库 不支持AndroidX 先去掉
-    api("io.github.htjywl:com.lyb.besttimer.pluginwidget:2.0.1") {
+    //通用控件库
+    api("com.gitee.linyibiao0921.AndroidShare:pluginwidget:3.0.2") {
         exclude module: 'recyclerview-v7'
     }
     //不支持AndroidX 去掉
