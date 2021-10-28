@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.administrator.baseproject.databinding.ActivityMainBinding
+import com.example.administrator.ezviz.EzvizPlayerActivity
 import com.google.android.material.tabs.TabLayout
 import com.htjy.baselibrary.base.ViewModelActivity
 import com.htjy.baselibrary.widget.imageloader.ImageLoaderUtil
@@ -59,6 +60,7 @@ class MainActivity : ViewModelActivity<ActivityMainBinding,MainViewModel>() {
             // ImageLoaderUtil.getInstance().loadCircleBorderImage("http://img.taopic.com/uploads/allimg/140729/240450-140HZP45790.jpg",R.color.transparent
             //          ,iv,20,getResources().getColor(R.color.red));
         }
+        gotoActivity(EzvizPlayerActivity::class.java)
     }
     override fun initData() {
         mViewModel.getData()
