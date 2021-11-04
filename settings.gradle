@@ -1,2 +1,3 @@
 include ':app', 'baselibrary'
 include ':EzvizSDK'
+include ':thirdpushmodule'
