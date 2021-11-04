@@ -1,10 +1,9 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-android-extensions'
-    id 'com.github.dcendents.android-maven'
-}
+apply plugin: 'com.android.library'
+// 这里添加下面两行代码。
+apply plugin: 'com.github.dcendents.android-maven' //this way we can find the android-maven in jcenter
 group='com.gitee.honedu'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]

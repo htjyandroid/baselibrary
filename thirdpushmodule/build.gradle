@@ -1,7 +1,6 @@
-plugins {
-    id 'com.android.library'
-    id 'com.github.dcendents.android-maven'
-}
+apply plugin: 'com.android.library'
+// 这里添加下面两行代码。
+apply plugin: 'com.github.dcendents.android-maven' //this way we can find the android-maven in jcenter
 group='com.gitee.honedu'
 
 android {
