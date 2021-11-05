@@ -97,6 +97,7 @@ public class PushMessageReceiver extends JPushMessageReceiver {
     public void onRegister(Context context, String registrationId) {
         Log.e(TAG, "[onRegister] " + registrationId);
         //TODO 可以在拿到注册ID后上报到自己的服务器，方便以后指定用户推送和查询信息
+        NotifyHandleUtil.onRegister(context, registrationId);
     }
 
     /**

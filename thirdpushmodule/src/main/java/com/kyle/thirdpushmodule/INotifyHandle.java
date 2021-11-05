@@ -18,4 +18,9 @@ public interface INotifyHandle {
      */
     void onMessage(Context context, HtCustomMessage htCustomMessage);
 
+    /**
+     * 注册回调
+     */
+    void onRegister(Context context, String registrationId);
+
 }

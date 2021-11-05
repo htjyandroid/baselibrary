@@ -34,4 +34,13 @@ public class NotifyHandleUtil {
         }
     }
 
+    /**
+     * 注册回调
+     */
+    public static void onRegister(Context context, String registrationId) {
+        if (iNotifyHandle != null) {
+            iNotifyHandle.onRegister(context, registrationId);
+        }
+    }
+
 }
