@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.htjy.baselibrary.tpnspushmodule">
+
+    <application>
+        <meta-data
+            android:name="XG_SERVICE_PULL_UP_OFF"
+            android:value="true" />
+
+        <receiver android:name=".MessageReceiver">
+            <intent-filter>
+
+                <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
+                <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
