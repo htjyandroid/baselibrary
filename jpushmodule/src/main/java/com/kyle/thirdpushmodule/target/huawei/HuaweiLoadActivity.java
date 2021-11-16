@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.kyle.thirdpushmodule.NotifyHandleUtil;
+import com.kyle.thirdpushmodule.JpushHandleUtil;
 import com.kyle.thirdpushmodule.R;
 
 import org.json.JSONException;
@@ -88,7 +88,7 @@ public class HuaweiLoadActivity extends Activity {
             }
         }
         if (!TextUtils.isEmpty(extras)) {
-            NotifyHandleUtil.runNotifyMessageOpened(extras);
+            JpushHandleUtil.runNotifyMessageOpened(extras);
         }
 
         Log.i("jiguang", "msg content is: " + data);

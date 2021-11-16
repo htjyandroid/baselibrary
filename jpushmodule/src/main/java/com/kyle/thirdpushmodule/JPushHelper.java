@@ -22,6 +22,22 @@ public class JPushHelper {
         JPushInterface.init(application); // 初始化 JPush
     }
 
+    public static void resumePush(Application application) {
+        if (JPushInterface.isPushStopped(application)) {
+            JPushInterface.resumePush(application);
+        }
+    }
+
+    public static void stopPush(Application application) {
+        if (!JPushInterface.isPushStopped(application)) {
+            JPushInterface.stopPush(application);
+        }
+    }
+
+    public static void getRegistrationID(Application application, IGetRegistrationIdCall call) {
+        JpushHandleUtil.getRegistrationID(application, call);
+    }
+
     /**
      * 获取RegistrationID
      *
@@ -42,22 +58,15 @@ public class JPushHelper {
     /**
      * 通知处理设置
      */
-    public static void setiNotifyHandle(INotifyHandle iNotifyHandle) {
-        NotifyHandleUtil.setiNotifyHandle(iNotifyHandle);
-    }
-
-    /**
-     * 通知到达处理(一般不包括厂商推送)
-     */
-    public static void runNotifyArrived(Context context, HtCustomMessage htCustomMessage) {
-        NotifyHandleUtil.runNotifyArrived(context, htCustomMessage);
+    public static void setiNotifyHandle(JpushCallback jpushCallback) {
+        JpushHandleUtil.setiNotifyHandle(jpushCallback);
     }
 
     /**
      * 通知点击处理
      */
     public static void runNotifyMessageOpened(String extras) {
-        NotifyHandleUtil.runNotifyMessageOpened(extras);
+        JpushHandleUtil.runNotifyMessageOpened(extras);
     }
 
 }
