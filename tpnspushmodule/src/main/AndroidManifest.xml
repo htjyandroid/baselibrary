@@ -30,6 +30,12 @@
     <!-- 注：魅族push 需要的权限 end -->
     <!-- 魅族 -->
 
+    <!-- OPPO -->
+    <!--OPPO 推送服务必须权限-->
+    <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE" />
+    <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE" />
+    <!-- OPPO -->
+
     <application>
 
         <uses-library
@@ -127,6 +133,34 @@
             </intent-filter>
         </receiver>
         <!-- 魅族 -->
+
+        <!-- OPPO -->
+        <meta-data
+            android:name="OPPO_APPKEY"
+            android:value="${OPPO_APPKEY}" />
+        <meta-data
+            android:name="OPPO_APPID"
+            android:value="${OPPO_APPID}" />
+        <meta-data
+            android:name="OPPO_APPSECRET"
+            android:value="${OPPO_APPSECRET}" />
+        <!-- 以下为1.2.0.2 OPPO版本组件 -->
+        <service
+            android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
+            android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+            <intent-filter>
+                <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.heytap.msp.push.service.DataMessageCallbackService"
+            android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE">
+            <intent-filter>
+                <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE" />
+                <action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE" />
+            </intent-filter>
+        </service>
+        <!-- OPPO -->
 
     </application>
 </manifest>

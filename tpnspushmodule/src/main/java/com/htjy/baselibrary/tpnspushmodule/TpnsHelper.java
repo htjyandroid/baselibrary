@@ -23,34 +23,51 @@ public class TpnsHelper {
      * 配置小米通道
      */
     private static void configXM(Application application, ApplicationInfo appInfo) {
-        String XIAOMI_APPKEY = appInfo.metaData.getString("XIAOMI_APPKEY");
-        String XIAOMI_APPID = appInfo.metaData.getString("XIAOMI_APPID");
+        String appKey = appInfo.metaData.getString("XIAOMI_APPKEY");
+        String appId = appInfo.metaData.getString("XIAOMI_APPID");
         String prefixStr = "MI-";
-        if (XIAOMI_APPID.startsWith(prefixStr)) {
-            XIAOMI_APPID = XIAOMI_APPID.substring(prefixStr.length());
+        if (appId.startsWith(prefixStr)) {
+            appId = appId.substring(prefixStr.length());
         }
-        if (XIAOMI_APPKEY.startsWith(prefixStr)) {
-            XIAOMI_APPKEY = XIAOMI_APPKEY.substring(prefixStr.length());
+        if (appKey.startsWith(prefixStr)) {
+            appKey = appKey.substring(prefixStr.length());
         }
-        XGPushConfig.setMiPushAppId(application, XIAOMI_APPID);
-        XGPushConfig.setMiPushAppKey(application, XIAOMI_APPKEY);
+        XGPushConfig.setMiPushAppId(application, appId);
+        XGPushConfig.setMiPushAppKey(application, appKey);
     }
 
     /**
      * 配置魅族通道
      */
     private static void configMZ(Application application, ApplicationInfo appInfo) {
-        String MEIZU_APPKEY = appInfo.metaData.getString("MEIZU_APPKEY");
-        String MEIZU_APPID = appInfo.metaData.getString("MEIZU_APPID");
+        String appKey = appInfo.metaData.getString("MEIZU_APPKEY");
+        String appid = appInfo.metaData.getString("MEIZU_APPID");
         String prefixStr = "MZ-";
-        if (MEIZU_APPID.startsWith(prefixStr)) {
-            MEIZU_APPID = MEIZU_APPID.substring(prefixStr.length());
+        if (appid.startsWith(prefixStr)) {
+            appid = appid.substring(prefixStr.length());
         }
-        if (MEIZU_APPKEY.startsWith(prefixStr)) {
-            MEIZU_APPKEY = MEIZU_APPKEY.substring(prefixStr.length());
+        if (appKey.startsWith(prefixStr)) {
+            appKey = appKey.substring(prefixStr.length());
         }
-        XGPushConfig.setMzPushAppId(application, MEIZU_APPID);
-        XGPushConfig.setMzPushAppKey(application, MEIZU_APPKEY);
+        XGPushConfig.setMzPushAppId(application, appid);
+        XGPushConfig.setMzPushAppKey(application, appKey);
+    }
+
+    /**
+     * 配置OPPO通道
+     */
+    private static void configOPPO(Application application, ApplicationInfo appInfo) {
+        String appKey = appInfo.metaData.getString("OPPO_APPSECRET");
+        String appId = appInfo.metaData.getString("OPPO_APPKEY");
+        String prefixStr = "OP-";
+        if (appId.startsWith(prefixStr)) {
+            appId = appId.substring(prefixStr.length());
+        }
+        if (appKey.startsWith(prefixStr)) {
+            appKey = appKey.substring(prefixStr.length());
+        }
+        XGPushConfig.setOppoPushAppId(application, appId);
+        XGPushConfig.setOppoPushAppKey(application, appKey);
     }
 
     public static void resumePush(Application application) {
@@ -58,6 +75,7 @@ public class TpnsHelper {
             ApplicationInfo appInfo = application.getPackageManager().getApplicationInfo(application.getPackageName(), PackageManager.GET_META_DATA);
             configXM(application, appInfo);
             configMZ(application, appInfo);
+            configOPPO(application, appInfo);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
