@@ -19,20 +19,45 @@ public class TpnsHelper {
         resumePush(application);
     }
 
+    /**
+     * 配置小米通道
+     */
+    private static void configXM(Application application, ApplicationInfo appInfo) {
+        String XIAOMI_APPKEY = appInfo.metaData.getString("XIAOMI_APPKEY");
+        String XIAOMI_APPID = appInfo.metaData.getString("XIAOMI_APPID");
+        String prefixStr = "MI-";
+        if (XIAOMI_APPID.startsWith(prefixStr)) {
+            XIAOMI_APPID = XIAOMI_APPID.substring(prefixStr.length());
+        }
+        if (XIAOMI_APPKEY.startsWith(prefixStr)) {
+            XIAOMI_APPKEY = XIAOMI_APPKEY.substring(prefixStr.length());
+        }
+        XGPushConfig.setMiPushAppId(application, XIAOMI_APPID);
+        XGPushConfig.setMiPushAppKey(application, XIAOMI_APPKEY);
+    }
+
+    /**
+     * 配置魅族通道
+     */
+    private static void configMZ(Application application, ApplicationInfo appInfo) {
+        String MEIZU_APPKEY = appInfo.metaData.getString("MEIZU_APPKEY");
+        String MEIZU_APPID = appInfo.metaData.getString("MEIZU_APPID");
+        String prefixStr = "MZ-";
+        if (MEIZU_APPID.startsWith(prefixStr)) {
+            MEIZU_APPID = MEIZU_APPID.substring(prefixStr.length());
+        }
+        if (MEIZU_APPKEY.startsWith(prefixStr)) {
+            MEIZU_APPKEY = MEIZU_APPKEY.substring(prefixStr.length());
+        }
+        XGPushConfig.setMzPushAppId(application, MEIZU_APPID);
+        XGPushConfig.setMzPushAppKey(application, MEIZU_APPKEY);
+    }
+
     public static void resumePush(Application application) {
         try {
             ApplicationInfo appInfo = application.getPackageManager().getApplicationInfo(application.getPackageName(), PackageManager.GET_META_DATA);
-            String XIAOMI_APPKEY = appInfo.metaData.getString("XIAOMI_APPKEY");
-            String XIAOMI_APPID = appInfo.metaData.getString("XIAOMI_APPID");
-            String prefixStr = "MI-";
-            if (XIAOMI_APPID.startsWith(prefixStr)) {
-                XIAOMI_APPID = XIAOMI_APPID.substring(prefixStr.length());
-            }
-            if (XIAOMI_APPKEY.startsWith(prefixStr)) {
-                XIAOMI_APPKEY = XIAOMI_APPKEY.substring(prefixStr.length());
-            }
-            XGPushConfig.setMiPushAppId(application, XIAOMI_APPID);
-            XGPushConfig.setMiPushAppKey(application, XIAOMI_APPKEY);
+            configXM(application, appInfo);
+            configMZ(application, appInfo);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

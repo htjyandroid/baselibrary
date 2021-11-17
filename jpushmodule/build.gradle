@@ -45,6 +45,7 @@ dependencies {
 //    api 'cn.jiguang.sdk.plugin:huawei:4.4.0'
     //魅族推送包（可选）
 //    api 'cn.jiguang.sdk.plugin:meizu:4.4.0'
+    implementation project(':pushmzmodule')
     //fcm推送包（可选）
 //    api 'com.google.firebase:firebase-messaging:21.0.1'
 }

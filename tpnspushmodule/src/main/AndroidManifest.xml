@@ -13,9 +13,28 @@
     <!-- 注：小米push 需要的权限 end -->
     <!-- 小米 -->
 
+    <!-- 魅族 -->
+    <!-- 注：魅族push 需要的权限 begin -->
+    <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"></uses-permission>
+    <permission
+        android:name="${applicationId}.push.permission.MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="${applicationId}.push.permission.MESSAGE"></uses-permission>
+    <!--  兼容flyme3.0配置权限-->
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
+    <permission
+        android:name="${applicationId}.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"></permission>
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
+    <!-- 注：魅族push 需要的权限 end -->
+    <!-- 魅族 -->
+
     <application>
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <meta-data
             android:name="XG_SERVICE_PULL_UP_OFF"
@@ -73,7 +92,7 @@
         <!-- 注：此service必须在2.2.5版本以后（包括2.2.5版本）加入 -->
         <receiver
             android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -82,12 +101,32 @@
         <receiver
             android:name="com.xiaomi.push.service.receivers.PingReceiver"
             android:exported="false"
-            android:process=":pushservice" >
+            android:process=":pushservice">
             <intent-filter>
                 <action android:name="com.xiaomi.push.PING_TIMER" />
             </intent-filter>
         </receiver>
         <!-- 小米 -->
+
+        <!-- 魅族 -->
+
+        <meta-data
+            android:name="MEIZU_APPKEY"
+            android:value="${MEIZU_APPKEY}" />
+        <meta-data
+            android:name="MEIZU_APPID"
+            android:value="${MEIZU_APPID}" />
+
+        <service
+            android:name="com.meizu.cloud.pushsdk.NotificationService"
+            android:exported="true" />
+        <receiver android:name="com.meizu.cloud.pushsdk.SystemReceiver">
+            <intent-filter>
+                <action android:name="com.meizu.cloud.pushservice.action.PUSH_SERVICE_START" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <!-- 魅族 -->
 
     </application>
 </manifest>
