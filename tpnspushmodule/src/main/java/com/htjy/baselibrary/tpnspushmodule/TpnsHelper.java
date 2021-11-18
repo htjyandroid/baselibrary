@@ -1,6 +1,7 @@
 package com.htjy.baselibrary.tpnspushmodule;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -104,6 +105,13 @@ public class TpnsHelper {
 
     public static void getToken(IGetTokenCall call) {
         TpnsHandleUtil.getToken(call);
+    }
+
+    /**
+     * 清空通知
+     */
+    public static void cancelAllNotifaction(Context context) {
+        XGPushManager.cancelAllNotifaction(context);
     }
 
     /**

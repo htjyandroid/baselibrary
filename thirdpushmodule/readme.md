@@ -1,0 +1,1 @@
+极光推送对于多推送兼容的处理：https://go48pg.yuque.com/docs/share/68ce96d3-582c-404c-9c6a-ded81938323e?#%20%E3%80%8A%E5%A4%9ASDK%E4%BD%BF%E7%94%A8%E5%8E%82%E5%95%86%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E3%80%8B

@@ -1,5 +1,6 @@
 package com.kyle.thirdpushmodule;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -34,6 +35,14 @@ public class JPushHelper {
         }
     }
 
+    public static void onResume(Activity activity) {
+        JPushInterface.onResume(activity);
+    }
+
+    public static void onPause(Activity activity) {
+        JPushInterface.onPause(activity);
+    }
+
     public static void getRegistrationID(Application application, IGetRegistrationIdCall call) {
         JpushHandleUtil.getRegistrationID(application, call);
     }
@@ -60,13 +69,6 @@ public class JPushHelper {
      */
     public static void setiNotifyHandle(JpushCallback jpushCallback) {
         JpushHandleUtil.setiNotifyHandle(jpushCallback);
-    }
-
-    /**
-     * 通知点击处理
-     */
-    public static void runNotifyMessageOpened(String extras) {
-        JpushHandleUtil.runNotifyMessageOpened(extras);
     }
 
 }
