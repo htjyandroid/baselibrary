@@ -212,5 +212,31 @@
         </service> <!--兼容Q版本-->
         <!-- OPPO -->
 
+        <!-- VIVO -->
+
+        <meta-data
+            android:name="com.vivo.push.api_key"
+            android:value="${VIVO_APPKEY}" />
+        <meta-data
+            android:name="com.vivo.push.app_id"
+            android:value="${VIVO_APPID}" />
+
+        <receiver android:name="cn.jpush.android.service.PluginVivoMessageReceiver"
+            android:exported="true">
+            <intent-filter>
+                <!-- 接收 push 消息 -->
+                <action android:name="com.vivo.pushclient.action.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.vivo.push.sdk.service.CommandClientService"
+            android:exported="true" />
+        <activity
+            android:name="com.vivo.push.sdk.LinkProxyClientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- VIVO -->
+
     </application>
 </manifest>

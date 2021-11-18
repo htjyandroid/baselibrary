@@ -1,3 +1,3 @@
 <resources tools:keep="" xmlns:tools="http://schemas.android.com/tools">
-    <string name="system_default_channel">default_message</string>
+    <string name="system_default_channel">system default channel</string>
 </resources>
