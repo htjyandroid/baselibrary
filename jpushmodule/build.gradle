@@ -41,7 +41,7 @@ dependencies {
     //vivo推送包（可选）
 //    api 'cn.jiguang.sdk.plugin:vivo:4.4.0'
     //华为推送包（可选）
-//    api 'com.huawei.hms:push:5.3.0.304'
+    api 'com.huawei.hms:push:5.3.0.304'
 //    api 'cn.jiguang.sdk.plugin:huawei:4.4.0'
     //魅族推送包（可选）
 //    api 'cn.jiguang.sdk.plugin:meizu:4.4.0'

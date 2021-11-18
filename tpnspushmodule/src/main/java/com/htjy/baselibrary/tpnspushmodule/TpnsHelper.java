@@ -8,6 +8,7 @@ import android.util.Log;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
+import com.tencent.tpns.baseapi.base.util.ChannelUtils;
 
 /**
  * Created by besttimer on 2021/11/11
@@ -79,7 +80,7 @@ public class TpnsHelper {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        XGPushConfig.enableOtherPush(application, true);
+        XGPushConfig.enableOtherPush(application, !ChannelUtils.isBrandHuaWei() && !ChannelUtils.isBrandHonor());
         XGPushManager.registerPush(application, new XGIOperateCallback() {
             @Override
             public void onSuccess(Object data, int flag) {
@@ -98,7 +99,6 @@ public class TpnsHelper {
     }
 
     public static void stopPush(Application application) {
-        XGPushConfig.enableOtherPush(application, false);
         XGPushManager.unregisterPush(application);
     }
 
